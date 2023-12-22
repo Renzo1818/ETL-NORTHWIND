@@ -1,0 +1,1089 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/20/2023 9:20:02 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="WIN-9HQ0HVQGUE9"
+  DTS:CreatorName="WIN-9HQ0HVQGUE9\Administrador"
+  DTS:DTSID="{F5918CAA-06AA-4338-A4D2-5D71E59EA89A}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5397.1"
+  DTS:LocaleID="10250"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{6EA8C308-3CB5-49B4-BD8C-E0FCF7FE4EA4}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\ETL Categories"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Contenedor de secuencias"
+      DTS:DTSID="{B760B2FF-D19B-4421-A9D8-2D766ED13930}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ETL Categories">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\ETL Categories\ETL Categories"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Tarea Flujo de datos"
+          DTS:DTSID="{21242298-6DBD-4B48-8819-3E9B93782F61}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="ETL Categories"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\ETL Categories\ETL Categories\Actualizar datos que cambiaron en Categories de NORTHWIND_ETL"
+                  componentClassID="Microsoft.OLEDBCommand"
+                  contactInfo="Comando de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;2"
+                  description="Ejecuta una instrucción SQL para cada fila de un flujo de datos. Por ejemplo, se usa para llamar al procedimiento almacenado de configuración de nuevo empleado para cada fila de la tabla de nuevos empleados. Nota: la ejecución de una instrucción SQL para cada fila de un flujo de datos de gran tamaño puede tardar mucho tiempo."
+                  name="Actualizar datos que cambiaron en Categories de NORTHWIND_ETL"
+                  usesDispositions="true"
+                  version="2">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Comando SQL para ejecutar."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[DimCategories]
+SET
+CategoryName = ?,
+Description = ?,
+Picture = ?
+WHERE CategoryID = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                      name="DefaultCodePage">1252</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\ETL Categories\ETL Categories\Actualizar datos que cambiaron en Categories de NORTHWIND_ETL.Connections[OleDbConnection]"
+                      connectionManagerID="{D923FDDD-0324-4E3A-9CD2-CC9AF9BD368D}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WIN-9HQ0HVQGUE9.NORTHWIND_ETL]"
+                      description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\ETL Categories\ETL Categories\Actualizar datos que cambiaron en Categories de NORTHWIND_ETL.Inputs[Entrada de comando de OLE DB]"
+                      errorOrTruncationOperation="Ejecución de comando"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="Entrada de comando de OLE DB">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\ETL Categories\ETL Categories\Actualizar datos que cambiaron en Categories de NORTHWIND_ETL.Inputs[Entrada de comando de OLE DB].Columns[CategoryName]"
+                          cachedDataType="wstr"
+                          cachedLength="15"
+                          cachedName="CategoryName"
+                          externalMetadataColumnId="Package\ETL Categories\ETL Categories\Actualizar datos que cambiaron en Categories de NORTHWIND_ETL.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_0]"
+                          lineageId="Package\ETL Categories\ETL Categories\Base de datos produccion Northwind.Outputs[Salida de origen de OLE DB].Columns[CategoryName]" />
+                        <inputColumn
+                          refId="Package\ETL Categories\ETL Categories\Actualizar datos que cambiaron en Categories de NORTHWIND_ETL.Inputs[Entrada de comando de OLE DB].Columns[Description]"
+                          cachedDataType="nText"
+                          cachedName="Description"
+                          externalMetadataColumnId="Package\ETL Categories\ETL Categories\Actualizar datos que cambiaron en Categories de NORTHWIND_ETL.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_1]"
+                          lineageId="Package\ETL Categories\ETL Categories\Base de datos produccion Northwind.Outputs[Salida de origen de OLE DB].Columns[Description]" />
+                        <inputColumn
+                          refId="Package\ETL Categories\ETL Categories\Actualizar datos que cambiaron en Categories de NORTHWIND_ETL.Inputs[Entrada de comando de OLE DB].Columns[Picture]"
+                          cachedDataType="image"
+                          cachedName="Picture"
+                          externalMetadataColumnId="Package\ETL Categories\ETL Categories\Actualizar datos que cambiaron en Categories de NORTHWIND_ETL.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_2]"
+                          lineageId="Package\ETL Categories\ETL Categories\Base de datos produccion Northwind.Outputs[Salida de origen de OLE DB].Columns[Picture]" />
+                        <inputColumn
+                          refId="Package\ETL Categories\ETL Categories\Actualizar datos que cambiaron en Categories de NORTHWIND_ETL.Inputs[Entrada de comando de OLE DB].Columns[CategoryID]"
+                          cachedDataType="i4"
+                          cachedName="CategoryID"
+                          externalMetadataColumnId="Package\ETL Categories\ETL Categories\Actualizar datos que cambiaron en Categories de NORTHWIND_ETL.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_3]"
+                          lineageId="Package\ETL Categories\ETL Categories\Base de datos produccion Northwind.Outputs[Salida de origen de OLE DB].Columns[CategoryID]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\ETL Categories\ETL Categories\Actualizar datos que cambiaron en Categories de NORTHWIND_ETL.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_0]"
+                          dataType="wstr"
+                          length="15"
+                          name="Param_0">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\ETL Categories\ETL Categories\Actualizar datos que cambiaron en Categories de NORTHWIND_ETL.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_1]"
+                          dataType="nText"
+                          name="Param_1">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                              name="DBParamInfoFlags">193</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\ETL Categories\ETL Categories\Actualizar datos que cambiaron en Categories de NORTHWIND_ETL.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_2]"
+                          dataType="image"
+                          name="Param_2">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                              name="DBParamInfoFlags">193</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\ETL Categories\ETL Categories\Actualizar datos que cambiaron en Categories de NORTHWIND_ETL.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_3]"
+                          dataType="i4"
+                          name="Param_3">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                              name="DBParamInfoFlags">81</property>
+                          </properties>
+                        </externalMetadataColumn>
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\ETL Categories\ETL Categories\Actualizar datos que cambiaron en Categories de NORTHWIND_ETL.Outputs[Salida de comando de OLE DB]"
+                      exclusionGroup="1"
+                      name="Salida de comando de OLE DB"
+                      synchronousInputId="Package\ETL Categories\ETL Categories\Actualizar datos que cambiaron en Categories de NORTHWIND_ETL.Inputs[Entrada de comando de OLE DB]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\ETL Categories\ETL Categories\Actualizar datos que cambiaron en Categories de NORTHWIND_ETL.Outputs[Salida de error de comando de OLE DB]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Salida de error de comando de OLE DB"
+                      synchronousInputId="Package\ETL Categories\ETL Categories\Actualizar datos que cambiaron en Categories de NORTHWIND_ETL.Inputs[Entrada de comando de OLE DB]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\ETL Categories\ETL Categories\Actualizar datos que cambiaron en Categories de NORTHWIND_ETL.Outputs[Salida de error de comando de OLE DB].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\ETL Categories\ETL Categories\Actualizar datos que cambiaron en Categories de NORTHWIND_ETL.Outputs[Salida de error de comando de OLE DB].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\ETL Categories\ETL Categories\Actualizar datos que cambiaron en Categories de NORTHWIND_ETL.Outputs[Salida de error de comando de OLE DB].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\ETL Categories\ETL Categories\Actualizar datos que cambiaron en Categories de NORTHWIND_ETL.Outputs[Salida de error de comando de OLE DB].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\ETL Categories\ETL Categories\Base de datos produccion Northwind"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+                  description="Origen de OLE DB"
+                  name="Base de datos produccion Northwind"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                      name="OpenRowset">[dbo].[Categories]</property>
+                    <property
+                      dataType="System.String"
+                      description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="Comando SQL para ejecutar."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [CategoryID]
+      ,[CategoryName]
+      ,[Description]
+      ,[Picture]
+FROM [Northwind].[dbo].[Categories]
+GO</property>
+                    <property
+                      dataType="System.String"
+                      description="Variable que contiene el comando SQL para ejecutar."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Asignaciones entre los parámetros del comando SQL y las variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\ETL Categories\ETL Categories\Base de datos produccion Northwind.Connections[OleDbConnection]"
+                      connectionManagerID="{5F35DDF4-536A-4F1A-A08C-BDEE1D3A4E7B}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WIN-9HQ0HVQGUE9.Northwind]"
+                      description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\ETL Categories\ETL Categories\Base de datos produccion Northwind.Outputs[Salida de origen de OLE DB]"
+                      name="Salida de origen de OLE DB">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\ETL Categories\ETL Categories\Base de datos produccion Northwind.Outputs[Salida de origen de OLE DB].Columns[CategoryID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ETL Categories\ETL Categories\Base de datos produccion Northwind.Outputs[Salida de origen de OLE DB].ExternalColumns[CategoryID]"
+                          lineageId="Package\ETL Categories\ETL Categories\Base de datos produccion Northwind.Outputs[Salida de origen de OLE DB].Columns[CategoryID]"
+                          name="CategoryID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\ETL Categories\ETL Categories\Base de datos produccion Northwind.Outputs[Salida de origen de OLE DB].Columns[CategoryName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ETL Categories\ETL Categories\Base de datos produccion Northwind.Outputs[Salida de origen de OLE DB].ExternalColumns[CategoryName]"
+                          length="15"
+                          lineageId="Package\ETL Categories\ETL Categories\Base de datos produccion Northwind.Outputs[Salida de origen de OLE DB].Columns[CategoryName]"
+                          name="CategoryName"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\ETL Categories\ETL Categories\Base de datos produccion Northwind.Outputs[Salida de origen de OLE DB].Columns[Description]"
+                          dataType="nText"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ETL Categories\ETL Categories\Base de datos produccion Northwind.Outputs[Salida de origen de OLE DB].ExternalColumns[Description]"
+                          lineageId="Package\ETL Categories\ETL Categories\Base de datos produccion Northwind.Outputs[Salida de origen de OLE DB].Columns[Description]"
+                          name="Description"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\ETL Categories\ETL Categories\Base de datos produccion Northwind.Outputs[Salida de origen de OLE DB].Columns[Picture]"
+                          dataType="image"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ETL Categories\ETL Categories\Base de datos produccion Northwind.Outputs[Salida de origen de OLE DB].ExternalColumns[Picture]"
+                          lineageId="Package\ETL Categories\ETL Categories\Base de datos produccion Northwind.Outputs[Salida de origen de OLE DB].Columns[Picture]"
+                          name="Picture"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\ETL Categories\ETL Categories\Base de datos produccion Northwind.Outputs[Salida de origen de OLE DB].ExternalColumns[CategoryID]"
+                          dataType="i4"
+                          name="CategoryID" />
+                        <externalMetadataColumn
+                          refId="Package\ETL Categories\ETL Categories\Base de datos produccion Northwind.Outputs[Salida de origen de OLE DB].ExternalColumns[CategoryName]"
+                          dataType="wstr"
+                          length="15"
+                          name="CategoryName" />
+                        <externalMetadataColumn
+                          refId="Package\ETL Categories\ETL Categories\Base de datos produccion Northwind.Outputs[Salida de origen de OLE DB].ExternalColumns[Description]"
+                          dataType="nText"
+                          name="Description" />
+                        <externalMetadataColumn
+                          refId="Package\ETL Categories\ETL Categories\Base de datos produccion Northwind.Outputs[Salida de origen de OLE DB].ExternalColumns[Picture]"
+                          dataType="image"
+                          name="Picture" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\ETL Categories\ETL Categories\Base de datos produccion Northwind.Outputs[Salida de error de origen de OLE DB]"
+                      isErrorOut="true"
+                      name="Salida de error de origen de OLE DB">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\ETL Categories\ETL Categories\Base de datos produccion Northwind.Outputs[Salida de error de origen de OLE DB].Columns[CategoryID]"
+                          dataType="i4"
+                          lineageId="Package\ETL Categories\ETL Categories\Base de datos produccion Northwind.Outputs[Salida de error de origen de OLE DB].Columns[CategoryID]"
+                          name="CategoryID" />
+                        <outputColumn
+                          refId="Package\ETL Categories\ETL Categories\Base de datos produccion Northwind.Outputs[Salida de error de origen de OLE DB].Columns[CategoryName]"
+                          dataType="wstr"
+                          length="15"
+                          lineageId="Package\ETL Categories\ETL Categories\Base de datos produccion Northwind.Outputs[Salida de error de origen de OLE DB].Columns[CategoryName]"
+                          name="CategoryName" />
+                        <outputColumn
+                          refId="Package\ETL Categories\ETL Categories\Base de datos produccion Northwind.Outputs[Salida de error de origen de OLE DB].Columns[Description]"
+                          dataType="nText"
+                          lineageId="Package\ETL Categories\ETL Categories\Base de datos produccion Northwind.Outputs[Salida de error de origen de OLE DB].Columns[Description]"
+                          name="Description" />
+                        <outputColumn
+                          refId="Package\ETL Categories\ETL Categories\Base de datos produccion Northwind.Outputs[Salida de error de origen de OLE DB].Columns[Picture]"
+                          dataType="image"
+                          lineageId="Package\ETL Categories\ETL Categories\Base de datos produccion Northwind.Outputs[Salida de error de origen de OLE DB].Columns[Picture]"
+                          name="Picture" />
+                        <outputColumn
+                          refId="Package\ETL Categories\ETL Categories\Base de datos produccion Northwind.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\ETL Categories\ETL Categories\Base de datos produccion Northwind.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\ETL Categories\ETL Categories\Base de datos produccion Northwind.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\ETL Categories\ETL Categories\Base de datos produccion Northwind.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\ETL Categories\ETL Categories\Cargar datos nuevos a NORTHWIND_ETL"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+                  description="Destino de OLE DB"
+                  name="Cargar datos nuevos a NORTHWIND_ETL"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                      name="OpenRowset">[dbo].[DimCategories]</property>
+                    <property
+                      dataType="System.String"
+                      description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="Comando SQL para ejecutar."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                      name="FastLoadKeepIdentity">true</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                      name="FastLoadKeepNulls">true</property>
+                    <property
+                      dataType="System.String"
+                      description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\ETL Categories\ETL Categories\Cargar datos nuevos a NORTHWIND_ETL.Connections[OleDbConnection]"
+                      connectionManagerID="{D923FDDD-0324-4E3A-9CD2-CC9AF9BD368D}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WIN-9HQ0HVQGUE9.NORTHWIND_ETL]"
+                      description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\ETL Categories\ETL Categories\Cargar datos nuevos a NORTHWIND_ETL.Inputs[Entrada de destino de OLE DB]"
+                      errorOrTruncationOperation="Insertar"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="Entrada de destino de OLE DB">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\ETL Categories\ETL Categories\Cargar datos nuevos a NORTHWIND_ETL.Inputs[Entrada de destino de OLE DB].Columns[CategoryName]"
+                          cachedDataType="wstr"
+                          cachedLength="15"
+                          cachedName="CategoryName"
+                          externalMetadataColumnId="Package\ETL Categories\ETL Categories\Cargar datos nuevos a NORTHWIND_ETL.Inputs[Entrada de destino de OLE DB].ExternalColumns[CategoryName]"
+                          lineageId="Package\ETL Categories\ETL Categories\Base de datos produccion Northwind.Outputs[Salida de origen de OLE DB].Columns[CategoryName]" />
+                        <inputColumn
+                          refId="Package\ETL Categories\ETL Categories\Cargar datos nuevos a NORTHWIND_ETL.Inputs[Entrada de destino de OLE DB].Columns[Description]"
+                          cachedDataType="nText"
+                          cachedName="Description"
+                          externalMetadataColumnId="Package\ETL Categories\ETL Categories\Cargar datos nuevos a NORTHWIND_ETL.Inputs[Entrada de destino de OLE DB].ExternalColumns[Description]"
+                          lineageId="Package\ETL Categories\ETL Categories\Base de datos produccion Northwind.Outputs[Salida de origen de OLE DB].Columns[Description]" />
+                        <inputColumn
+                          refId="Package\ETL Categories\ETL Categories\Cargar datos nuevos a NORTHWIND_ETL.Inputs[Entrada de destino de OLE DB].Columns[Picture]"
+                          cachedDataType="image"
+                          cachedName="Picture"
+                          externalMetadataColumnId="Package\ETL Categories\ETL Categories\Cargar datos nuevos a NORTHWIND_ETL.Inputs[Entrada de destino de OLE DB].ExternalColumns[Picture]"
+                          lineageId="Package\ETL Categories\ETL Categories\Base de datos produccion Northwind.Outputs[Salida de origen de OLE DB].Columns[Picture]" />
+                        <inputColumn
+                          refId="Package\ETL Categories\ETL Categories\Cargar datos nuevos a NORTHWIND_ETL.Inputs[Entrada de destino de OLE DB].Columns[CategoryID]"
+                          cachedDataType="i4"
+                          cachedName="CategoryID"
+                          externalMetadataColumnId="Package\ETL Categories\ETL Categories\Cargar datos nuevos a NORTHWIND_ETL.Inputs[Entrada de destino de OLE DB].ExternalColumns[CategoryID]"
+                          lineageId="Package\ETL Categories\ETL Categories\Base de datos produccion Northwind.Outputs[Salida de origen de OLE DB].Columns[CategoryID]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\ETL Categories\ETL Categories\Cargar datos nuevos a NORTHWIND_ETL.Inputs[Entrada de destino de OLE DB].ExternalColumns[CategoryID]"
+                          dataType="i4"
+                          name="CategoryID" />
+                        <externalMetadataColumn
+                          refId="Package\ETL Categories\ETL Categories\Cargar datos nuevos a NORTHWIND_ETL.Inputs[Entrada de destino de OLE DB].ExternalColumns[CategoryName]"
+                          dataType="wstr"
+                          length="15"
+                          name="CategoryName" />
+                        <externalMetadataColumn
+                          refId="Package\ETL Categories\ETL Categories\Cargar datos nuevos a NORTHWIND_ETL.Inputs[Entrada de destino de OLE DB].ExternalColumns[Description]"
+                          dataType="nText"
+                          name="Description" />
+                        <externalMetadataColumn
+                          refId="Package\ETL Categories\ETL Categories\Cargar datos nuevos a NORTHWIND_ETL.Inputs[Entrada de destino de OLE DB].ExternalColumns[Picture]"
+                          dataType="image"
+                          name="Picture" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\ETL Categories\ETL Categories\Cargar datos nuevos a NORTHWIND_ETL.Outputs[Salida de error de destino de OLE DB]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Salida de error de destino de OLE DB"
+                      synchronousInputId="Package\ETL Categories\ETL Categories\Cargar datos nuevos a NORTHWIND_ETL.Inputs[Entrada de destino de OLE DB]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\ETL Categories\ETL Categories\Cargar datos nuevos a NORTHWIND_ETL.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\ETL Categories\ETL Categories\Cargar datos nuevos a NORTHWIND_ETL.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\ETL Categories\ETL Categories\Cargar datos nuevos a NORTHWIND_ETL.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\ETL Categories\ETL Categories\Cargar datos nuevos a NORTHWIND_ETL.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\ETL Categories\ETL Categories\Comparacion de datos repetidos y actualizar"
+                  componentClassID="Microsoft.ConditionalSplit"
+                  contactInfo="División condicional;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+                  description="Enruta filas de datos a diferentes salidas según el contenido de los datos. Se usan condiciones (expresiones de SSIS) para especificar las filas que se van a enrutar. Por ejemplo, se usa para separar los registros que deben limpiarse de los registros listos para ser cargados o para enrutar solamente un subconjunto de registros."
+                  name="Comparacion de datos repetidos y actualizar"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\ETL Categories\ETL Categories\Comparacion de datos repetidos y actualizar.Inputs[Entrada de división condicional]"
+                      description="Entrada en la transformación División condicional"
+                      name="Entrada de división condicional">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\ETL Categories\ETL Categories\Comparacion de datos repetidos y actualizar.Inputs[Entrada de división condicional].Columns[CategoryName]"
+                          cachedDataType="wstr"
+                          cachedLength="15"
+                          cachedName="CategoryName"
+                          lineageId="Package\ETL Categories\ETL Categories\Base de datos produccion Northwind.Outputs[Salida de origen de OLE DB].Columns[CategoryName]" />
+                        <inputColumn
+                          refId="Package\ETL Categories\ETL Categories\Comparacion de datos repetidos y actualizar.Inputs[Entrada de división condicional].Columns[Description]"
+                          cachedDataType="nText"
+                          cachedName="Description"
+                          lineageId="Package\ETL Categories\ETL Categories\Base de datos produccion Northwind.Outputs[Salida de origen de OLE DB].Columns[Description]" />
+                        <inputColumn
+                          refId="Package\ETL Categories\ETL Categories\Comparacion de datos repetidos y actualizar.Inputs[Entrada de división condicional].Columns[Picture]"
+                          cachedDataType="image"
+                          cachedName="Picture"
+                          lineageId="Package\ETL Categories\ETL Categories\Base de datos produccion Northwind.Outputs[Salida de origen de OLE DB].Columns[Picture]" />
+                        <inputColumn
+                          refId="Package\ETL Categories\ETL Categories\Comparacion de datos repetidos y actualizar.Inputs[Entrada de división condicional].Columns[D_CategoryName]"
+                          cachedDataType="wstr"
+                          cachedLength="15"
+                          cachedName="D_CategoryName"
+                          lineageId="Package\ETL Categories\ETL Categories\Comparar con Categories NORTHWIND_ETL.Outputs[Salida de entradas coincidentes de búsqueda].Columns[D_CategoryName]" />
+                        <inputColumn
+                          refId="Package\ETL Categories\ETL Categories\Comparacion de datos repetidos y actualizar.Inputs[Entrada de división condicional].Columns[D_Description]"
+                          cachedDataType="nText"
+                          cachedName="D_Description"
+                          lineageId="Package\ETL Categories\ETL Categories\Comparar con Categories NORTHWIND_ETL.Outputs[Salida de entradas coincidentes de búsqueda].Columns[D_Description]" />
+                        <inputColumn
+                          refId="Package\ETL Categories\ETL Categories\Comparacion de datos repetidos y actualizar.Inputs[Entrada de división condicional].Columns[D_Picture]"
+                          cachedDataType="image"
+                          cachedName="D_Picture"
+                          lineageId="Package\ETL Categories\ETL Categories\Comparar con Categories NORTHWIND_ETL.Outputs[Salida de entradas coincidentes de búsqueda].Columns[D_Picture]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\ETL Categories\ETL Categories\Comparacion de datos repetidos y actualizar.Outputs[Datos diferentes]"
+                      description="Salida 1 de la transformación División condicional"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      exclusionGroup="1"
+                      name="Datos diferentes"
+                      synchronousInputId="Package\ETL Categories\ETL Categories\Comparacion de datos repetidos y actualizar.Inputs[Entrada de división condicional]"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Especifica la expresión. Esta versión de expresión usa identificadores de linaje en lugar de nombres de columna."
+                          name="Expression">(#{Package\ETL Categories\ETL Categories\Base de datos produccion Northwind.Outputs[Salida de origen de OLE DB].Columns[CategoryName]} != #{Package\ETL Categories\ETL Categories\Comparar con Categories NORTHWIND_ETL.Outputs[Salida de entradas coincidentes de búsqueda].Columns[D_CategoryName]}) || (#{Package\ETL Categories\ETL Categories\Base de datos produccion Northwind.Outputs[Salida de origen de OLE DB].Columns[Description]} != #{Package\ETL Categories\ETL Categories\Comparar con Categories NORTHWIND_ETL.Outputs[Salida de entradas coincidentes de búsqueda].Columns[D_Description]}) || (#{Package\ETL Categories\ETL Categories\Base de datos produccion Northwind.Outputs[Salida de origen de OLE DB].Columns[Picture]} != #{Package\ETL Categories\ETL Categories\Comparar con Categories NORTHWIND_ETL.Outputs[Salida de entradas coincidentes de búsqueda].Columns[D_Picture]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Especifica la versión descriptiva de la expresión. Esta versión de expresión usa nombres de columna."
+                          expressionType="Notify"
+                          name="FriendlyExpression">(CategoryName != D_CategoryName) || (Description != D_Description) || (Picture != D_Picture)</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica la posición de la condición en la lista de condiciones que evalúa la transformación. El orden de evaluación es del menor al mayor valor."
+                          name="EvaluationOrder">0</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\ETL Categories\ETL Categories\Comparacion de datos repetidos y actualizar.Outputs[Salida predeterminada de división condicional]"
+                      description="Salida predeterminada de la transformación División condicional"
+                      exclusionGroup="1"
+                      name="Salida predeterminada de división condicional"
+                      synchronousInputId="Package\ETL Categories\ETL Categories\Comparacion de datos repetidos y actualizar.Inputs[Entrada de división condicional]">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsDefaultOut">true</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\ETL Categories\ETL Categories\Comparacion de datos repetidos y actualizar.Outputs[Salida de error de división condicional]"
+                      description="Salida de error de la transformación División condicional"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Salida de error de división condicional"
+                      synchronousInputId="Package\ETL Categories\ETL Categories\Comparacion de datos repetidos y actualizar.Inputs[Entrada de división condicional]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\ETL Categories\ETL Categories\Comparacion de datos repetidos y actualizar.Outputs[Salida de error de división condicional].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\ETL Categories\ETL Categories\Comparacion de datos repetidos y actualizar.Outputs[Salida de error de división condicional].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\ETL Categories\ETL Categories\Comparacion de datos repetidos y actualizar.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\ETL Categories\ETL Categories\Comparacion de datos repetidos y actualizar.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\ETL Categories\ETL Categories\Comparar con Categories NORTHWIND_ETL"
+                  componentClassID="Microsoft.Lookup"
+                  contactInfo="Búsqueda;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;6"
+                  description="Combina columnas adicionales con el flujo de datos mediante la búsqueda de valores en una tabla. Por ejemplo, se combina la columna 'id. de empleado' con la tabla de empleados para obtener la 'fecha de contratación' y 'el nombre de empleado'. Se recomienda esta transformación cuando hay suficiente espacio en memoria para la tabla de búsqueda."
+                  name="Comparar con Categories NORTHWIND_ETL"
+                  usesDispositions="true"
+                  version="6">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Especifica la instrucción SQL que genera la tabla de búsqueda."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DimCategories]</property>
+                    <property
+                      dataType="System.String"
+                      description="Especifica una instrucción SQL que usa parámetros para generar la tabla de búsqueda."
+                      expressionType="Notify"
+                      name="SqlCommandParam"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DimCategories]) [refTable]
+where [refTable].[CategoryID] = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica el tipo de conexión utilizado para tener acceso al conjunto de datos de referencia."
+                      name="ConnectionType"
+                      typeConverter="LookupConnectionType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica el tipo de caché de la tabla de búsqueda."
+                      name="CacheType"
+                      typeConverter="CacheType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica cómo la transformación de búsquedas trata las filas sin entradas coincidentes en el conjunto de datos de referencia."
+                      name="NoMatchBehavior"
+                      typeConverter="LookupNoMatchBehavior">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica el porcentaje de la caché asignado a las filas sin entradas coincidentes en el conjunto de datos de referencia."
+                      name="NoMatchCachePercentage">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Uso de memoria máximo para la caché de referencia en una plataforma de 32 bits."
+                      name="MaxMemoryUsage">25</property>
+                    <property
+                      dataType="System.Int64"
+                      description="Uso de memoria máximo para la caché de referencia en una plataforma de 64 bits."
+                      name="MaxMemoryUsage64">25</property>
+                    <property
+                      dataType="System.String"
+                      description="Indica si se debe hacer referencia a metadatos en formato XML."
+                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="CategoryID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CategoryName" dataType="DT_WSTR" length="15" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Description" dataType="DT_NTEXT" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Picture" dataType="DT_IMAGE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la lista de identificadores de linaje que están asignados a los parámetros que usa la instrucción SQL de la propiedad SQLCommand. Las entradas de la lista están separadas por puntos y comas."
+                      name="ParameterMap">#{Package\ETL Categories\ETL Categories\Base de datos produccion Northwind.Outputs[Salida de origen de OLE DB].Columns[CategoryID]};</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determina si las claves duplicadas de los datos de referencia se deben tratar como errores cuando se usa el modo de caché."
+                      name="TreatDuplicateKeysAsError">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\ETL Categories\ETL Categories\Comparar con Categories NORTHWIND_ETL.Connections[OleDbConnection]"
+                      connectionManagerID="{D923FDDD-0324-4E3A-9CD2-CC9AF9BD368D}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WIN-9HQ0HVQGUE9.NORTHWIND_ETL]"
+                      description="Administrador de conexiones utilizado para obtener acceso a los datos de búsqueda."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\ETL Categories\ETL Categories\Comparar con Categories NORTHWIND_ETL.Inputs[Entrada de búsqueda]"
+                      name="Entrada de búsqueda">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\ETL Categories\ETL Categories\Comparar con Categories NORTHWIND_ETL.Inputs[Entrada de búsqueda].Columns[CategoryID]"
+                          cachedDataType="i4"
+                          cachedName="CategoryID"
+                          lineageId="Package\ETL Categories\ETL Categories\Base de datos produccion Northwind.Outputs[Salida de origen de OLE DB].Columns[CategoryID]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Especifica la columna de la tabla de referencia con la que se combina una columna."
+                              name="JoinToReferenceColumn">CategoryID</property>
+                            <property
+                              dataType="System.Null"
+                              description="Especifica la columna de la tabla de referencia de la que se copia una columna."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\ETL Categories\ETL Categories\Comparar con Categories NORTHWIND_ETL.Outputs[Salida de entradas coincidentes de búsqueda]"
+                      errorOrTruncationOperation="Búsqueda"
+                      exclusionGroup="1"
+                      name="Salida de entradas coincidentes de búsqueda"
+                      synchronousInputId="Package\ETL Categories\ETL Categories\Comparar con Categories NORTHWIND_ETL.Inputs[Entrada de búsqueda]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\ETL Categories\ETL Categories\Comparar con Categories NORTHWIND_ETL.Outputs[Salida de entradas coincidentes de búsqueda].Columns[D_CategoryID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Copiar columna"
+                          lineageId="Package\ETL Categories\ETL Categories\Comparar con Categories NORTHWIND_ETL.Outputs[Salida de entradas coincidentes de búsqueda].Columns[D_CategoryID]"
+                          name="D_CategoryID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Especifica la columna de la tabla de referencia de la que se copia una columna."
+                              name="CopyFromReferenceColumn">CategoryID</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\ETL Categories\ETL Categories\Comparar con Categories NORTHWIND_ETL.Outputs[Salida de entradas coincidentes de búsqueda].Columns[D_CategoryName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Copiar columna"
+                          length="15"
+                          lineageId="Package\ETL Categories\ETL Categories\Comparar con Categories NORTHWIND_ETL.Outputs[Salida de entradas coincidentes de búsqueda].Columns[D_CategoryName]"
+                          name="D_CategoryName"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Especifica la columna de la tabla de referencia de la que se copia una columna."
+                              name="CopyFromReferenceColumn">CategoryName</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\ETL Categories\ETL Categories\Comparar con Categories NORTHWIND_ETL.Outputs[Salida de entradas coincidentes de búsqueda].Columns[D_Description]"
+                          dataType="nText"
+                          errorOrTruncationOperation="Copiar columna"
+                          lineageId="Package\ETL Categories\ETL Categories\Comparar con Categories NORTHWIND_ETL.Outputs[Salida de entradas coincidentes de búsqueda].Columns[D_Description]"
+                          name="D_Description"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Especifica la columna de la tabla de referencia de la que se copia una columna."
+                              name="CopyFromReferenceColumn">Description</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\ETL Categories\ETL Categories\Comparar con Categories NORTHWIND_ETL.Outputs[Salida de entradas coincidentes de búsqueda].Columns[D_Picture]"
+                          dataType="image"
+                          errorOrTruncationOperation="Copiar columna"
+                          lineageId="Package\ETL Categories\ETL Categories\Comparar con Categories NORTHWIND_ETL.Outputs[Salida de entradas coincidentes de búsqueda].Columns[D_Picture]"
+                          name="D_Picture"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Especifica la columna de la tabla de referencia de la que se copia una columna."
+                              name="CopyFromReferenceColumn">Picture</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\ETL Categories\ETL Categories\Comparar con Categories NORTHWIND_ETL.Outputs[Salida de entradas no coincidentes de búsqueda]"
+                      description="Salida de búsqueda que trata las filas sin entradas coincidentes en el conjunto de datos de referencia. Utilice esta salida cuando la propiedad NoMatchBehavior esté establecida en 'Enviar las filas sin entradas coincidentes a la salida de entradas no coincidentes'."
+                      exclusionGroup="1"
+                      name="Salida de entradas no coincidentes de búsqueda"
+                      synchronousInputId="Package\ETL Categories\ETL Categories\Comparar con Categories NORTHWIND_ETL.Inputs[Entrada de búsqueda]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\ETL Categories\ETL Categories\Comparar con Categories NORTHWIND_ETL.Outputs[Salida de error de búsqueda]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Salida de error de búsqueda"
+                      synchronousInputId="Package\ETL Categories\ETL Categories\Comparar con Categories NORTHWIND_ETL.Inputs[Entrada de búsqueda]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\ETL Categories\ETL Categories\Comparar con Categories NORTHWIND_ETL.Outputs[Salida de error de búsqueda].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\ETL Categories\ETL Categories\Comparar con Categories NORTHWIND_ETL.Outputs[Salida de error de búsqueda].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\ETL Categories\ETL Categories\Comparar con Categories NORTHWIND_ETL.Outputs[Salida de error de búsqueda].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\ETL Categories\ETL Categories\Comparar con Categories NORTHWIND_ETL.Outputs[Salida de error de búsqueda].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\ETL Categories\ETL Categories.Paths[Datos diferentes]"
+                  endId="Package\ETL Categories\ETL Categories\Actualizar datos que cambiaron en Categories de NORTHWIND_ETL.Inputs[Entrada de comando de OLE DB]"
+                  name="Datos diferentes"
+                  startId="Package\ETL Categories\ETL Categories\Comparacion de datos repetidos y actualizar.Outputs[Datos diferentes]" />
+                <path
+                  refId="Package\ETL Categories\ETL Categories.Paths[Salida de entradas coincidentes de búsqueda]"
+                  endId="Package\ETL Categories\ETL Categories\Comparacion de datos repetidos y actualizar.Inputs[Entrada de división condicional]"
+                  name="Salida de entradas coincidentes de búsqueda"
+                  startId="Package\ETL Categories\ETL Categories\Comparar con Categories NORTHWIND_ETL.Outputs[Salida de entradas coincidentes de búsqueda]" />
+                <path
+                  refId="Package\ETL Categories\ETL Categories.Paths[Salida de entradas no coincidentes de búsqueda]"
+                  endId="Package\ETL Categories\ETL Categories\Cargar datos nuevos a NORTHWIND_ETL.Inputs[Entrada de destino de OLE DB]"
+                  name="Salida de entradas no coincidentes de búsqueda"
+                  startId="Package\ETL Categories\ETL Categories\Comparar con Categories NORTHWIND_ETL.Outputs[Salida de entradas no coincidentes de búsqueda]" />
+                <path
+                  refId="Package\ETL Categories\ETL Categories.Paths[Salida de origen de OLE DB]"
+                  endId="Package\ETL Categories\ETL Categories\Comparar con Categories NORTHWIND_ETL.Inputs[Entrada de búsqueda]"
+                  name="Salida de origen de OLE DB"
+                  startId="Package\ETL Categories\ETL Categories\Base de datos produccion Northwind.Outputs[Salida de origen de OLE DB]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="155,42"
+          Id="Package\ETL Categories\ETL Categories"
+          TopLeft="62,81" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="287,174"
+          Size="287,217"
+          Id="Package\ETL Categories"
+          TopLeft="131,57" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\ETL Categories\ETL Categories">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="258,42"
+          Id="Package\ETL Categories\ETL Categories\Base de datos produccion Northwind"
+          TopLeft="385,35" />
+        <NodeLayout
+          Size="302,42"
+          Id="Package\ETL Categories\ETL Categories\Comparar con Categories NORTHWIND_ETL"
+          TopLeft="362,120" />
+        <EdgeLayout
+          Id="Package\ETL Categories\ETL Categories.Paths[Salida de origen de OLE DB]"
+          TopLeft="513.5,77">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,43"
+              Start="0,0"
+              End="0,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="287,42"
+          Id="Package\ETL Categories\ETL Categories\Cargar datos nuevos a NORTHWIND_ETL"
+          TopLeft="256,254" />
+        <EdgeLayout
+          Id="Package\ETL Categories\ETL Categories.Paths[Salida de entradas no coincidentes de búsqueda]"
+          TopLeft="464,162">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-64.5,92"
+              Start="0,0"
+              End="-64.5,84.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.0909090909091" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,33.0909090909091"
+                    Point2="0,37.0909090909091"
+                    Point3="-4,37.0909090909091" />
+                  <mssgle:LineSegment
+                    End="-60.5,37.0909090909091" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-60.5,37.0909090909091"
+                    Point2="-64.5,37.0909090909091"
+                    Point3="-64.5,41.0909090909091" />
+                  <mssgle:LineSegment
+                    End="-64.5,84.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-139.1390234375,42.0909090909091,213.778046875,12.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="296,42"
+          Id="Package\ETL Categories\ETL Categories\Comparacion de datos repetidos y actualizar"
+          TopLeft="670,266" />
+        <EdgeLayout
+          Id="Package\ETL Categories\ETL Categories.Paths[Salida de entradas coincidentes de búsqueda]"
+          TopLeft="562,162">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="256,104"
+              Start="0,0"
+              End="256,96.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.9288537549407" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,37.9288537549407"
+                    Point2="0,41.9288537549407"
+                    Point3="4,41.9288537549407" />
+                  <mssgle:LineSegment
+                    End="252,41.9288537549407" />
+                  <mssgle:CubicBezierSegment
+                    Point1="252,41.9288537549407"
+                    Point2="256,41.9288537549407"
+                    Point3="256,45.9288537549407" />
+                  <mssgle:LineSegment
+                    End="256,96.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="28.1809765625,46.9288537549407,199.638046875,12.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="417,42"
+          Id="Package\ETL Categories\ETL Categories\Actualizar datos que cambiaron en Categories de NORTHWIND_ETL"
+          TopLeft="594,360" />
+        <EdgeLayout
+          Id="Package\ETL Categories\ETL Categories.Paths[Datos diferentes]"
+          TopLeft="818,308">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-15.5,52"
+              Start="0,0"
+              End="-15.5,44.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22"
+                    Point2="0,26"
+                    Point3="-4,26" />
+                  <mssgle:LineSegment
+                    End="-11.5,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-11.5,26"
+                    Point2="-15.5,26"
+                    Point3="-15.5,30" />
+                  <mssgle:LineSegment
+                    End="-15.5,44.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-44.362578125,31,73.22515625,9.7978515625"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\ETL Categories\ETL Categories\Base de datos produccion Northwind">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ETL Categories\ETL Categories\Comparar con Categories NORTHWIND_ETL">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimCategories]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ETL Categories\ETL Categories\Cargar datos nuevos a NORTHWIND_ETL">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
