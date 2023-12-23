@@ -15,7 +15,7 @@ El presente proyecto tiene como objetivo crear e implementar un ETL incremental 
 
 #### SQL Server Integration Services
 <p align="center">
-  <img src="https://cdn0.capterra-static.com/screenshots/2095137/64232.png">
+  ![SSIS](https://github.com/Renzo1818/ETL-NORTHWIND/assets/93232895/b5831eaf-834b-4359-9e11-0d72d055f3e3)
 </p>
 
 
