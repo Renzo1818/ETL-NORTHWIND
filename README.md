@@ -21,7 +21,9 @@ El presente proyecto tiene como objetivo crear e implementar un ETL incremental 
 
 ## Implementación del ETL incremental
 #### Flujo de control:
- 
+
+![FLUJO DE CONTROL](https://github.com/Renzo1818/ETL-NORTHWIND/assets/93232895/633e4555-c651-43b4-abc9-4df9a9e35d83)
+
  #### Flujo de tareas:
  - ETL FactOrders
 
