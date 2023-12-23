@@ -26,6 +26,7 @@ El presente proyecto tiene como objetivo crear e implementar un ETL incremental 
  - ETL FactOrders
 
   ![INSERT_UPDATE FACT_ORDERS](https://github.com/Renzo1818/ETL-NORTHWIND/assets/93232895/39c51689-ea3e-4249-a1fc-43ffa810db38)
+<br></br>
   ![DELETE FACT_ORDERS](https://github.com/Renzo1818/ETL-NORTHWIND/assets/93232895/4c599672-15fd-4c3b-bc77-6bf036b7566e)
 
  - ETL DimEmployees
