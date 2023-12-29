@@ -1,0 +1,7 @@
+## Visualización de NORTHWIND DATA WEREHOUSE en tableros POWER BI:
+- Tablero 01: GESTIÓN DE VENTAS
+  
+  ![GESTION DE VENTAS DASHBOARD](https://github.com/Renzo1818/ETL-NORTHWIND/assets/93232895/aac4deec-9fbb-41f3-be61-3a9ce59f4526)
+  
+- Tablero 02: GESTIÓN DE ÓRDENES
+  ![GESTION DE ORDENES DASHBOARD](https://github.com/Renzo1818/ETL-NORTHWIND/assets/93232895/29400a12-39ad-4950-9733-3933e7a69878)
